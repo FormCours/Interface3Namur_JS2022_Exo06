@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import DateJour from './components/date-jour/date-jour';
+import Horloge from './components/horloge/horloge';
 
 function App() {
+
+  const [changeDisplay, setChangeDisplay] = useState(true);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <button onClick={() => setChangeDisplay(value => !value)} >Changer !</button>
+
+      {changeDisplay ? (
+        <DateJour />
+      ) : (
+        <Horloge />
+      )}
+
     </div>
   );
 }
